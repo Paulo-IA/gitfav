@@ -4,8 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitFav</title>
+
+    <script type="module" src="./src/main.js" defer></script>
 </head>
 <body>
-    <header></header>
+    <div id="app">
+        <header>
+            <img src="" alt="">
+
+            <div class="search">
+                <label for="github-username">
+                    Digite o Github username que quer favoritar
+                </label>
+                <input type="text" id="github-username" placeholder="Digite o Github username que quer favoritar">
+                <button type="button">
+                    <span>StarIcon</span>
+                    Favoritar
+                </button>
+            </div>
+        </header>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Usuário</th>
+                    <th>Repositórios</th>
+                    <th>Seguidores</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                
+            </tbody>
+        </table>
+
+    </div>
 </body>
 </html>
