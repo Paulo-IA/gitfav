@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: clamp(40%, 1%-2vw, 62.5%);
+    
+    --page-bg: #000;
+
+    --placeholder-color: #7c7c8A;
+
+    --button-primary: #065e7c;
+    --button-secondary: #fff;
+
+    --table-bg: #092d38;
+    --primary-bg: rgba(6, 22, 27, 0.50);
+    --secondary-bg: #06181c;
+    --border: #4A808C;
+
+    --scroll-bg: #4a808c;
+    
+    --not-show-color: #4E5455;
+
+    --text-color: #e1e1e6;
+
+    --trash-color: #f75a68;
+}
+
+body {
+    font-size: 1.6rem;
+
+}
+
+sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
