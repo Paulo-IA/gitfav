@@ -88,19 +88,18 @@ export class FavoritesView extends Favorites {
 
         rowElement.innerHTML = `
             <tr>
-                <td>
+                <td class="user">
                     <img src="https://github.com/${user.login}.png" alt="Imagem de ${user.login}">
 
-                    <div class="infos">
+                    <a href="https://github.com/${user.login}" target="_blank" class="infos">
                         <p>${user.name}</p>
                         <p>/${user.login}</p>
-                    </div>
+                    </a>
                 </td>
                 <td>${user.public_repos}</td>
                 <td>${user.followers}</td>
                 <td>
-                    <button class="remove" >
-                        trashIcon
+                    <button class="remove ph ph-trash">
                     </button>
                 </td>
             </tr>

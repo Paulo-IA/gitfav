@@ -28,7 +28,7 @@
     --trash-color: #f75a68;
 }
 
-body, input, button {
+body, input, button, td, th {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -43,12 +43,12 @@ body {
 
 #app {
     width: min(90%, 112rem);
-    margin: 11.5rem auto;
+    margin: 9rem auto 0;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    gap: 9rem;
 }
 
 /* header */
@@ -120,11 +120,179 @@ header .search {
 }
 
 /* table */
-
-
 table {
-    max-height: 68.8rem;
-    overflow: scroll;
+    width: 100%;
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+}
+
+thead {
+    background-color: var(--table-bg);
+    text-align: left;
+}
+
+/* HEADER BORDERS */
+thead th {
+    border: 1px solid var(--border);
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+thead th:first-child {
+    border: 1px solid var(--border);
+    border-right: 0;
+    border-bottom: 0;
+    border-radius: .8rem 0 0 0;
+}
+thead th:last-child {
+    border: 1px solid var(--border);
+    border-left: 0;
+    border-bottom: 0;
+    border-radius: 0 .8rem 0 0;
+}
+
+tbody {
+    /* overflow scroll */
+}
+
+tbody tr {
+    border: 1px solid var(--border);
+}
+
+tbody tr:nth-child(odd) td {
+    background-color: var(--primary-bg);
+}
+tbody tr:nth-child(even) td {
+    background-color: var(--secondary-bg);
+}
+
+tbody img {
+    height: 5.6rem;
+    width: 5.6rem;
+    border-radius: 50%;
+}
+
+tbody .user {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+tbody tr td:last-child,
+thead tr th:last-child {
+    text-align: center;
+}
+
+tbody .remove {
+    border: 0;
+    background-color: transparent;
+    color: var(--trash-color);
+    font-size: 2.4rem;
+    cursor: pointer;
+
+    transition: .1s;
+}
+tbody .remove:hover {
+    transform: scale(1.1) ;
+}
+
+/* BODY BORDERS */
+tbody td {
+    border: 1px solid var(--border);
+}
+
+tbody tr:last-child td:first-child {
+    border: 1px solid var(--border);
+    border-top: 0;
+    border-right: 0;
+    border-radius: 0 0 0 .8rem;
+}
+tbody tr:last-child td:last-child {
+    border: 1px solid var(--border);
+    border-top: 0;
+    border-left: 0;
+    border-radius: 0 0 .8rem 0;
+}
+
+
+/* RETIRANDO IMPARES */
+tbody tr:nth-child(odd) td:nth-child(1) {
+    border: 1px solid var(--border);
+    border-right: 0;
+    border-bottom: 0;
+    border-top: 0;
+}
+tbody tr:nth-child(odd) td:nth-child(2),
+tbody tr:nth-child(odd) td:nth-child(3) {
+    border: 1px solid var(--border);
+    border: 0;
+}
+tbody tr:nth-child(odd) td:nth-child(4) {
+    border: 1px solid var(--border);
+    border-left: 0;
+    border-bottom: 0;
+    border-top: 0;
+}
+
+/* RETIRANDO BORDAS PARES */
+tbody tr:nth-child(even) td:nth-child(1) {
+    border: 1px solid var(--border);
+    border-right: 0;
+}
+tbody tr:nth-child(even) td:nth-child(2),
+tbody tr:nth-child(even) td:nth-child(3) {
+    border: 1px solid var(--border);
+    border-left: 0;
+    border-right: 0;
+}
+tbody tr:nth-child(even) td:nth-child(4) {
+    border: 1px solid var(--border);
+    border-left: 0;
+}
+
+/* APLICANDO BORDAS NA ULTIMA */
+tbody tr:last-child td:nth-child(1) {
+    border: 1px solid var(--border);
+    border-top: 0;
+    border-right: 0;
+}
+tbody tr:last-child td:nth-child(2),
+tbody tr:last-child td:nth-child(3) {
+    border: 1px solid var(--border);
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+}
+tbody tr:last-child td:nth-child(4) {
+    border: 1px solid var(--border);
+    border-top: 0;
+    border-left: 0;
+}
+
+/* ULTIMA SE FOR PAR */
+tbody tr:nth-child(even):last-child td:nth-child(1) {
+    border: 1px solid var(--border);
+    border-right: 0;
+}
+tbody tr:nth-child(even):last-child td:nth-child(2),
+tbody tr:nth-child(even):last-child td:nth-child(3) {
+    border: 1px solid var(--border);
+    border-right: 0;
+    border-left: 0;
+}
+tbody tr:nth-child(even):last-child td:nth-child(4) {
+    border: 1px solid var(--border);
+    border-left: 0;
+}
+th, td {
+    color: var(--text-color);
+    padding: 1.6rem 4rem;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
 }
 
 .sr-only {
