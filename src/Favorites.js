@@ -66,6 +66,11 @@ export class FavoritesView extends Favorites {
 
     update() {
         this.deleteAllRows()
+        
+        if (this.isEntiresEmpty) {
+            this.showNotFavoriteYet()
+            return
+        }
 
         this.entires.forEach(user => {
             const row = this.createRow(user)
@@ -113,5 +118,10 @@ export class FavoritesView extends Favorites {
             .forEach(tr => {
                 tr.remove()
             })
+    }
+
+    showNotFavoriteYet() {
+        console.log("> [showNotFavoriteYet]: started")
+        console.log("> [showNotFavoriteYet]: ended")
     }
 }

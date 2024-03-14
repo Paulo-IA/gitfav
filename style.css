@@ -4,6 +4,19 @@
     box-sizing: border-box;
 }
 
+html::-webkit-scrollbar {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: .6rem;
+    /* background: none; */
+}
+html::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background-color: var(--border);
+}
+
 :root {
     font-size: 62.5%;
     
@@ -37,13 +50,13 @@ body {
 
     background-color: var(--page-bg);
 
-    height: 100vh;
+    height: 100%;
 
 }
 
 #app {
     width: min(90%, 112rem);
-    margin: 9rem auto 0;
+    margin: 9rem auto;
 
     display: flex;
     flex-direction: column;
@@ -127,37 +140,13 @@ table {
 }
 
 thead {
+    width: 100%;
     background-color: var(--table-bg);
     text-align: left;
-}
 
-/* HEADER BORDERS */
-thead th {
+    border-radius: .8rem .8rem 0 0;
     border: 1px solid var(--border);
-    border-left: 0;
-    border-right: 0;
     border-bottom: 0;
-}
-
-thead th:first-child {
-    border: 1px solid var(--border);
-    border-right: 0;
-    border-bottom: 0;
-    border-radius: .8rem 0 0 0;
-}
-thead th:last-child {
-    border: 1px solid var(--border);
-    border-left: 0;
-    border-bottom: 0;
-    border-radius: 0 .8rem 0 0;
-}
-
-tbody {
-    /* overflow scroll */
-}
-
-tbody tr {
-    border: 1px solid var(--border);
 }
 
 tbody tr:nth-child(odd) td {
@@ -179,9 +168,66 @@ tbody .user {
     gap: 1.6rem;
 }
 
-tbody tr td:last-child,
-thead tr th:last-child {
-    text-align: center;
+tbody tr:nth-child(even) {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+tbody tr:nth-child(even):last-child {
+    border-top: 1px solid var(--border);
+    border-bottom: 0;
+}
+
+th, td {
+    color: var(--text-color);
+    padding: 1.6rem 4rem;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+thead, tbody {
+    display: flex;
+    flex-direction: column;
+}
+
+tbody {
+    border-radius: 0 0 .8rem .8rem;
+    border: 1px solid var(--border);
+    border-top: 0;
+    max-height: 44.5rem;
+
+    overflow-y: auto;
+}
+tbody::-webkit-scrollbar {
+    width: .6rem;
+}
+tbody::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background-color: var(--border);
+}
+
+thead tr, tbody tr {
+    display: flex;
+    width: 100%;
+}
+
+thead tr th:first-child,
+tbody tr td:first-child {
+    width: 49%;
+}
+
+thead tr th,
+tbody tr td {
+    width: 17%;
+    display: flex;
+    align-items: center;
+}
+
+tbody tr td:last-child button {
+    margin-left: 1rem;
 }
 
 tbody .remove {
@@ -195,104 +241,6 @@ tbody .remove {
 }
 tbody .remove:hover {
     transform: scale(1.1) ;
-}
-
-/* BODY BORDERS */
-tbody td {
-    border: 1px solid var(--border);
-}
-
-tbody tr:last-child td:first-child {
-    border: 1px solid var(--border);
-    border-top: 0;
-    border-right: 0;
-    border-radius: 0 0 0 .8rem;
-}
-tbody tr:last-child td:last-child {
-    border: 1px solid var(--border);
-    border-top: 0;
-    border-left: 0;
-    border-radius: 0 0 .8rem 0;
-}
-
-
-/* RETIRANDO IMPARES */
-tbody tr:nth-child(odd) td:nth-child(1) {
-    border: 1px solid var(--border);
-    border-right: 0;
-    border-bottom: 0;
-    border-top: 0;
-}
-tbody tr:nth-child(odd) td:nth-child(2),
-tbody tr:nth-child(odd) td:nth-child(3) {
-    border: 1px solid var(--border);
-    border: 0;
-}
-tbody tr:nth-child(odd) td:nth-child(4) {
-    border: 1px solid var(--border);
-    border-left: 0;
-    border-bottom: 0;
-    border-top: 0;
-}
-
-/* RETIRANDO BORDAS PARES */
-tbody tr:nth-child(even) td:nth-child(1) {
-    border: 1px solid var(--border);
-    border-right: 0;
-}
-tbody tr:nth-child(even) td:nth-child(2),
-tbody tr:nth-child(even) td:nth-child(3) {
-    border: 1px solid var(--border);
-    border-left: 0;
-    border-right: 0;
-}
-tbody tr:nth-child(even) td:nth-child(4) {
-    border: 1px solid var(--border);
-    border-left: 0;
-}
-
-/* APLICANDO BORDAS NA ULTIMA */
-tbody tr:last-child td:nth-child(1) {
-    border: 1px solid var(--border);
-    border-top: 0;
-    border-right: 0;
-}
-tbody tr:last-child td:nth-child(2),
-tbody tr:last-child td:nth-child(3) {
-    border: 1px solid var(--border);
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
-}
-tbody tr:last-child td:nth-child(4) {
-    border: 1px solid var(--border);
-    border-top: 0;
-    border-left: 0;
-}
-
-/* ULTIMA SE FOR PAR */
-tbody tr:nth-child(even):last-child td:nth-child(1) {
-    border: 1px solid var(--border);
-    border-right: 0;
-}
-tbody tr:nth-child(even):last-child td:nth-child(2),
-tbody tr:nth-child(even):last-child td:nth-child(3) {
-    border: 1px solid var(--border);
-    border-right: 0;
-    border-left: 0;
-}
-tbody tr:nth-child(even):last-child td:nth-child(4) {
-    border: 1px solid var(--border);
-    border-left: 0;
-}
-th, td {
-    color: var(--text-color);
-    padding: 1.6rem 4rem;
-}
-
-a {
-    color: var(--text-color);
-    text-decoration: none;
 }
 
 .sr-only {
