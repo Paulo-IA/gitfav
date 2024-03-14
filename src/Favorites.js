@@ -1,4 +1,5 @@
 import { GithubUser } from "./GithubUser.js"
+import { ModalView } from "./Modal/index.js"
 
 export class Favorites {
     constructor(root) {
@@ -26,7 +27,13 @@ export class Favorites {
             const user = await GithubUser.search(login)
 
             if (user.login === undefined) {
-                throw new Error("Usuário não encontrado!")
+                let dataModal = {
+                    type: "confirm",
+                    message: "Usuário não encontrado!",
+                    root: this.root
+                }
+
+                throw dataModal;
             }
 
             this.root.querySelector("input").value = ""
@@ -35,7 +42,9 @@ export class Favorites {
             this.save()
         
         } catch(error) {
-            alert(error)
+            
+            const errorModal = new ModalView(error)
+            errorModal.render()
         }
     }
 
@@ -65,6 +74,7 @@ export class FavoritesView extends Favorites {
     }
 
     update() {
+        this.isEntiresEmpty = this.entires.length < 1
         this.deleteAllRows()
         
         if (this.isEntiresEmpty) {
@@ -121,7 +131,15 @@ export class FavoritesView extends Favorites {
     }
 
     showNotFavoriteYet() {
-        console.log("> [showNotFavoriteYet]: started")
-        console.log("> [showNotFavoriteYet]: ended")
+        let messageHTML = `
+            <tr class="message-container">
+                <td class="message-content">
+                    <img src="./assets/star.svg" alt="Star">
+                    <p>Nenhum favorito ainda</p>
+                </td>
+            </tr>
+        `
+
+        this.tbody.innerHTML = messageHTML
     }
 }

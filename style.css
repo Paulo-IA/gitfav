@@ -243,6 +243,42 @@ tbody .remove:hover {
     transform: scale(1.1) ;
 }
 
+/* message */
+.message-container {
+    height: 62.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+tr.message-container td.message-content {
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+    background: transparent;
+}
+
+td.message-content p {
+    color: var(--not-shown-color);
+    font-family: "Roboto Mono", sans-serifs;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 2.5rem; 
+}
+td.message-content img {
+    width: 13.2rem;
+    height: 12.5rem;
+    border-radius: 0;
+}
+
+.message-container,
+td.message-content {
+    background-color: var(--primary-bg);
+}
+
 .sr-only {
     position: absolute;
     width: 1px;
