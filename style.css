@@ -10,7 +10,6 @@ html::-webkit-scrollbar {
     left: 0;
     top: 0;
     width: .6rem;
-    /* background: none; */
 }
 html::-webkit-scrollbar-thumb {
     border-radius: 1rem;
@@ -39,6 +38,18 @@ html::-webkit-scrollbar-thumb {
     --text-color: #e1e1e6;
 
     --trash-color: #f75a68;
+
+    /* modal */
+    --modal-wrapper-bg: rgba(0, 0, 0, .4);
+    
+    --warning-color: #eab308;
+    --standard-button-color: #4338ca;
+    
+    --confirm-color: #16a34a;
+    --confirm-color-hover:#15803d;
+
+    --close-color: #dc2626;
+    --close-color-hover: #991b1b;
 }
 
 body, input, button, td, th {
@@ -277,6 +288,88 @@ td.message-content img {
 .message-container,
 td.message-content {
     background-color: var(--primary-bg);
+}
+
+/* modal */
+#modal-wrapper {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    inset: 0;
+    background-color: var(--modal-wrapper-bg);
+}
+
+#modal {
+    padding: 4rem;
+
+    border-radius: .8rem;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border);
+    
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+
+    position: relative;
+}
+
+#modal p {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2.4rem;
+    color: var(--text-color)
+}
+
+#modal p span {
+    color: var(--warning-color);
+}
+
+.modal-button-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+
+    align-items: center;
+    justify-content: end;
+}
+
+.modal-button-wrapper button {
+    border-radius: .8rem;
+    font-size: 1.4rem;
+    border: none;
+    background-color: var(--standard-button-color);
+    color: var(--text-color);
+    padding: 1rem 2rem;
+
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    
+    
+    text-transform: uppercase;
+    cursor: pointer;
+
+    transition: all .3s ease;
+}
+
+.modal-button-wrapper button:hover {
+    background-color: #312e81;
+}
+
+button.confirm {
+    background-color: var(--confirm-color);
+}
+button.confirm:hover {
+    background-color: var(--confirm-color-hover);
+}
+
+button.cancel {
+    background-color: var(--close-color);
+}
+button.cancel:hover {
+    background-color: var(--close-color-hover);
 }
 
 .sr-only {

@@ -14,6 +14,7 @@ export class ModalView extends Modal {
         // modal.classList.add('modal')
         // this.modalInfo.root.append()
 
+        //change boolean to delete
         console.log(this.modalInfo)
     }
 }
