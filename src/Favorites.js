@@ -20,9 +20,25 @@ export class Favorites {
         try {
             const userExists = this.entires.find(entry => login === entry.login)
 
-            if (!login) { throw new Error("Preencha o campo!") }
+            if (!login) {
+                let dataModal = {
+                    type: "confirm",
+                    message: "Preencha o campo!",
+                    root: this.root
+                }
+
+                throw dataModal;
+            }
             
-            if (userExists) { throw new Error("Usuário já Favoritado!") }
+            if (userExists) {
+                let dataModal = {
+                    type: "confirm",
+                    message: "Usuário já Favoritado!",
+                    root: this.root
+                }
+
+                throw dataModal;
+            }
 
             const user = await GithubUser.search(login)
 
@@ -86,6 +102,7 @@ export class FavoritesView extends Favorites {
             const row = this.createRow(user)
 
             row.querySelector(".remove").onclick = () => {
+                
                 const isOk = confirm("Tem certeza?")
 
                 if (isOk) {
